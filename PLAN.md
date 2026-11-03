@@ -37,7 +37,7 @@ Each step = one agent task = one commit. Tick the box when done.
 
 ### Phase 0 — Project setup
 - [x] 0.1 Create the Rails app in this folder with PostgreSQL; `bin/rails db:create` and the server must work
-- [ ] 0.2 Add RSpec and FactoryBot, plus a first passing test
+- [x] 0.2 Add RSpec and FactoryBot, plus a first passing test
 - [ ] 0.3 Add GitHub Actions CI that runs the tests
 - [ ] 0.4 Write a short README (what it is, how to run it)
 
