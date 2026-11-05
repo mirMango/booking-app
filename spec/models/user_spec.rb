@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe User, type: :model do
   describe "validations" do
-    it "is valid with a valid email and password" do
+    it "is valid with a valid name, email, and password" do
       user = build(:user)
       expect(user).to be_valid
     end
@@ -42,6 +42,46 @@ RSpec.describe User, type: :model do
       user = build(:user, password: "password123", password_confirmation: "different")
       expect(user).not_to be_valid
       expect(user.errors[:password_confirmation]).to be_present
+    end
+
+    it "requires a name" do
+      user = build(:user, name: nil)
+      expect(user).not_to be_valid
+      expect(user.errors[:name]).to be_present
+    end
+
+    it "rejects a blank name" do
+      user = build(:user, name: "")
+      expect(user).not_to be_valid
+      expect(user.errors[:name]).to be_present
+    end
+  end
+
+  describe "role enum" do
+    it "defaults to customer" do
+      user = create(:user)
+      expect(user).to be_customer
+      expect(user.role).to eq("customer")
+    end
+
+    it "supports all three roles" do
+      expect(User.roles.keys).to contain_exactly("customer", "staff", "admin")
+    end
+
+    it "can be assigned staff role" do
+      user = create(:user, role: :staff)
+      expect(user).to be_staff
+    end
+
+    it "can be assigned admin role" do
+      user = create(:user, role: :admin)
+      expect(user).to be_admin
+    end
+
+    it "rejects an invalid role value on save" do
+      user = build(:user, role: :superuser)
+      expect(user).not_to be_valid
+      expect(user.errors[:role]).to be_present
     end
   end
 end
