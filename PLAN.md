@@ -43,8 +43,8 @@ Each step = one agent task = one commit. Tick the box when done.
 
 ### Phase 1 — Accounts and roles
 - [x] 1.1 Devise sign up / log in / log out
-- [ ] 1.2 Add `name` and `role` to users (role defaults to customer)
-- [ ] 1.3 Pundit with a base policy; tests for who can do what
+- [x] 1.2 Add `name` and `role` to users (role defaults to customer)
+- [x] 1.3 Pundit with a base policy; tests for who can do what
 - [ ] 1.4 Seed one admin, two staff, and a few customers
 
 ### Phase 2 — Services, staff, working hours
