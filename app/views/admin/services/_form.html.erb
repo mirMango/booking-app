@@ -1,0 +1,38 @@
+<%= form_with(model: [:admin, service]) do |form| %>
+  <% if service.errors.any? %>
+    <div id="error_explanation" class="text-red-700 bg-red-50 border border-red-200 p-3 rounded mb-4" data-turbo-temporary>
+      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+      <ul>
+        <% service.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-4">
+    <%= form.label :name, class: "block font-bold mb-1" %>
+    <%= form.text_field :name, class: "border rounded p-2 w-full" %>
+  </div>
+
+  <div class="field mb-4">
+    <%= form.label :duration_minutes, "Duration (minutes)", class: "block font-bold mb-1" %>
+    <%= form.number_field :duration_minutes, min: 1, step: 1, class: "border rounded p-2 w-full" %>
+  </div>
+
+  <div class="field mb-4">
+    <%= form.label :price, "Price (#{Service::CURRENCY_SYMBOL})", class: "block font-bold mb-1" %>
+    <%= form.number_field :price, value: service.formatted_price, step: "0.01", min: "0", class: "border rounded p-2 w-full" %>
+  </div>
+
+  <div class="field mb-4">
+    <label class="inline-flex items-center">
+      <%= form.check_box :active, class: "mr-2" %>
+      <span class="font-bold">Active</span>
+    </label>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "bg-blue-600 text-white px-4 py-2 rounded cursor-pointer" %>
+  </div>
+<% end %>

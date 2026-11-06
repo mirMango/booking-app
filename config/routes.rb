@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   root "home#index"
 
   get "admin", to: "admin#index", as: :admin
+
+  namespace :admin do
+    resources :services, only: [ :index, :new, :create, :edit, :update ]
+  end
 end

@@ -48,7 +48,7 @@ Each step = one agent task = one commit. Tick the box when done.
 - [x] 1.4 Seed one admin, two staff, and a few customers
 
 ### Phase 2 — Services, staff, working hours
-- [ ] 2.1 Admin CRUD for services
+- [x] 2.1 Admin CRUD for services
 - [ ] 2.2 Assign services to staff
 - [ ] 2.3 Staff manage their own working hours (validate invalid or overlapping ranges)
 

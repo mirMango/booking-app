@@ -1,3 +1,4 @@
 <h1>Admin area</h1>
 <p>Welcome, <%= current_user.name %>. This area is for administrators only.</p>
+<p><%= link_to "Manage Services", admin_services_path %></p>
 <p><%= link_to "Back to home", root_path %></p>
