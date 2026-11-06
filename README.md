@@ -29,9 +29,9 @@ This project is currently in **early development** (Phase 0 complete). The appli
    bundle install
    ```
 
-2. **Create and migrate the database**:
+2. **Create, migrate, and seed the database**:
    ```bash
-   bin/rails db:create db:migrate
+   bin/rails db:create db:migrate db:seed
    ```
 
 3. **Start the development server (with Tailwind watcher)**:
@@ -39,6 +39,16 @@ This project is currently in **early development** (Phase 0 complete). The appli
    bin/dev
    ```
    Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Demo Accounts
+
+For local development, demo accounts can be loaded via `bin/rails db:seed`. These accounts exist only in the development environment and are never created in production:
+
+- **Admin**: `admin@example.com`
+- **Staff**: `staff1@example.com`, `staff2@example.com`
+- **Customers**: `customer1@example.com`, `customer2@example.com`, `customer3@example.com`
+
+The shared password for these accounts is not stored in this README; it is defined at the top of [`db/seeds.rb`](db/seeds.rb) (`DEMO_PASSWORD`).
 
 ## Running Tests & CI
 
